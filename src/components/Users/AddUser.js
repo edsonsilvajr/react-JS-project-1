@@ -8,6 +8,14 @@ const AddUser = (props) => {
   const [age, setAge] = useState("");
   const addUserHandler = (event) => {
     event.preventDefault();
+    if (name.trim().length === 0 || age.trim().length === 0) {
+      return;
+    }
+    if (+age < 1) {
+      return;
+    }
+    setAge("");
+    setName("");
   };
   const nameChangeHandler = (event) => {
     setName(event.target.value);
